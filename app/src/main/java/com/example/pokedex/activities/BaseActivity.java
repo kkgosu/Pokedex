@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.pokedex.annotations.Layout;
 import com.example.pokedex.annotations.Title;
 
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import timber.log.Timber;
 
 /**
@@ -14,15 +16,22 @@ import timber.log.Timber;
  */
 public abstract class BaseActivity extends AppCompatActivity {
 
+    private Unbinder mUnbinder;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutResId());
         setTitle();
 
-        Timber.d("This is debug and should not be visible in prod");
-        Timber.e("This is error and should be visible in prod");
-        Timber.i("This is info and should be visible in prod");
+        mUnbinder = ButterKnife.bind(this);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        mUnbinder.unbind();
     }
 
     private int getLayoutResId() {
