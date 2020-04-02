@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.pokedex.annotations.Layout;
 import com.example.pokedex.annotations.Title;
 
+import timber.log.Timber;
+
 /**
  * Created by Konstantin Koval on 02.04.2020
  */
@@ -17,6 +19,10 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutResId());
         setTitle();
+
+        Timber.d("This is debug and should not be visible in prod");
+        Timber.e("This is error and should be visible in prod");
+        Timber.i("This is info and should be visible in prod");
     }
 
     private int getLayoutResId() {
