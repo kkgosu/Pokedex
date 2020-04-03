@@ -1,0 +1,23 @@
+package com.example.pokedex.di;
+
+import android.content.Context;
+
+import com.example.pokedex.PokedexApplication;
+
+import javax.inject.Named;
+import javax.inject.Singleton;
+
+import dagger.Component;
+
+/**
+ * Created by Konstantin Koval on 02.04.2020
+ */
+@Singleton
+@Component(modules = {ApplicationModule.class})
+public interface ApplicationComponent {
+
+    PokedexApplication pokedexApplication();
+
+    @Named("Application")
+    Context applicationContext();
+}
