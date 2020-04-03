@@ -4,8 +4,12 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.pokedex.PokedexApplication;
 import com.example.pokedex.annotations.Layout;
 import com.example.pokedex.annotations.Title;
+import com.example.pokedex.di.ActivityComponent;
+import com.example.pokedex.di.ActivityModule;
+import com.example.pokedex.di.DaggerActivityComponent;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -16,12 +20,14 @@ import timber.log.Timber;
  */
 public abstract class BaseActivity extends AppCompatActivity {
 
+    private ActivityComponent mActivityComponent;
     private Unbinder mUnbinder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutResId());
+        setupDependencyInjection();
         setTitle();
 
         mUnbinder = ButterKnife.bind(this);
@@ -32,6 +38,13 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onDestroy();
 
         mUnbinder.unbind();
+    }
+
+    private void setupDependencyInjection() {
+        mActivityComponent = DaggerActivityComponent.builder()
+                .activityModule(new ActivityModule(this))
+                .applicationComponent(((PokedexApplication) getApplication()).getApplicationComponent())
+                .build();
     }
 
     private int getLayoutResId() {
