@@ -4,6 +4,8 @@ import android.content.Context;
 
 import com.example.pokedex.activities.BaseActivity;
 import com.example.pokedex.annotations.PerActivity;
+import com.example.pokedex.controllers.TransitionController;
+import com.example.pokedex.controllers.TransitionControllerImpl;
 
 import javax.inject.Named;
 
@@ -33,5 +35,11 @@ public class ActivityModule {
     @Named("Activity")
     public Context provideActivityContext() {
         return mBaseActivity;
+    }
+
+    @Provides
+    @PerActivity
+    public TransitionController provideTransitionController() {
+        return new TransitionControllerImpl(mBaseActivity);
     }
 }
