@@ -13,14 +13,13 @@ import com.example.pokedex.di.DaggerActivityComponent;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import timber.log.Timber;
 
 /**
  * Created by Konstantin Koval on 02.04.2020
  */
 public abstract class BaseActivity extends AppCompatActivity {
 
-    private ActivityComponent mActivityComponent;
+    protected ActivityComponent mActivityComponent;
     private Unbinder mUnbinder;
 
     @Override
@@ -38,6 +37,12 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onDestroy();
 
         mUnbinder.unbind();
+    }
+
+    public abstract int getFragmentLayoutId();
+
+    public ActivityComponent getActivityComponent() {
+        return mActivityComponent;
     }
 
     private void setupDependencyInjection() {

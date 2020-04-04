@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.example.pokedex.activities.BaseActivity;
 import com.example.pokedex.annotations.PerActivity;
+import com.example.pokedex.controllers.TransitionController;
 
 import javax.inject.Named;
 
@@ -21,4 +22,6 @@ public interface ActivityComponent {
 
     @Named("Activity")
     Context activityContext();
+
+    TransitionController transitionController();
 }
