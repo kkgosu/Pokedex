@@ -3,6 +3,10 @@ package com.example.pokedex.controllers;
 import androidx.fragment.app.Fragment;
 
 import com.example.pokedex.activities.BaseActivity;
+import com.example.pokedex.fragments.dashboard.DashboardBuilder;
+import com.example.pokedex.fragments.dashboard.DashboardFragment;
+import com.example.pokedex.fragments.detail.DetailBuilder;
+import com.example.pokedex.fragments.detail.DetailFragment;
 
 /**
  * Created by Konstantin Koval on 04.04.2020
@@ -22,5 +26,17 @@ public class TransitionControllerImpl implements TransitionController {
                 .replace(mBaseActivity.getFragmentLayoutId(), fragment)
                 .addToBackStack(fragment.getClass().getSimpleName())
                 .commit();
+    }
+
+    @Override
+    public void transitToDashboard() {
+        DashboardFragment fragment = new DashboardBuilder().build(mBaseActivity.getActivityComponent());
+        transition(fragment);
+    }
+
+    @Override
+    public void transitToDetail() {
+        DetailFragment fragment = new DetailBuilder().build(mBaseActivity.getActivityComponent());
+        transition(fragment);
     }
 }

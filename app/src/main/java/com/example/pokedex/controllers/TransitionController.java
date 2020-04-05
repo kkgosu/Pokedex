@@ -1,6 +1,5 @@
 package com.example.pokedex.controllers;
 
-import androidx.annotation.IdRes;
 import androidx.fragment.app.Fragment;
 
 /**
@@ -8,4 +7,7 @@ import androidx.fragment.app.Fragment;
  */
 public interface TransitionController {
     void transition(Fragment fragment);
+
+    void transitToDashboard();
+    void transitToDetail();
 }

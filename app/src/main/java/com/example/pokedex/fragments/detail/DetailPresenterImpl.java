@@ -1,9 +1,7 @@
 package com.example.pokedex.fragments.detail;
 
-import com.example.pokedex.di.ActivityComponent;
+import com.example.pokedex.controllers.TransitionController;
 import com.example.pokedex.fragments.base.BasePresenterImpl;
-import com.example.pokedex.fragments.dashboard.DashboardBuilder;
-import com.example.pokedex.fragments.dashboard.DashboardFragment;
 
 import javax.inject.Inject;
 
@@ -15,9 +13,11 @@ public class DetailPresenterImpl extends BasePresenterImpl implements DetailPres
     @Inject
     DetailView mView;
 
+    @Inject
+    TransitionController mTransitionController;
+
     @Override
-    public void transistToDetail(ActivityComponent activityComponent) {
-        DashboardFragment fragment = new DashboardBuilder().build(activityComponent);
-        activityComponent.transitionController().transition(fragment);
+    public void transistToDashboard() {
+        mTransitionController.transitToDashboard();
     }
 }
