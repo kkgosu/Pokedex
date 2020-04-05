@@ -1,6 +1,6 @@
 package com.example.pokedex.fragments.base;
 
-import com.example.pokedex.di.ActivityComponent;
+import com.example.pokedex.di.components.ActivityComponent;
 
 /**
  * Created by Konstantin Koval on 04.04.2020

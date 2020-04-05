@@ -1,6 +1,6 @@
 package com.example.pokedex.fragments.detail;
 
-import com.example.pokedex.di.ActivityComponent;
+import com.example.pokedex.di.components.ActivityComponent;
 import com.example.pokedex.fragments.base.BaseBuilder;
 
 /**

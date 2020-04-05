@@ -1,10 +1,11 @@
-package com.example.pokedex.di;
+package com.example.pokedex.di.components;
 
 import android.content.Context;
 
 import com.example.pokedex.activities.BaseActivity;
 import com.example.pokedex.annotations.PerActivity;
 import com.example.pokedex.controllers.TransitionController;
+import com.example.pokedex.di.modules.ActivityModule;
 
 import javax.inject.Named;
 

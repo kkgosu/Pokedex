@@ -1,4 +1,4 @@
-package com.example.pokedex.di;
+package com.example.pokedex.di.modules;
 
 import android.content.Context;
 
