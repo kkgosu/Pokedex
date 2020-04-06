@@ -20,7 +20,7 @@ public class DashboardFragment extends BaseFragment implements DashboardView {
 
     @OnClick(R.id.dashboard_textview)
     void onDashboardTextViewCLicked() {
-        mPresenter.transitToDetail();
+        mPresenter.transitToDetail(1);
     }
 
     public DashboardFragment(int contentLayoutId) {

@@ -35,8 +35,8 @@ public class TransitionControllerImpl implements TransitionController {
     }
 
     @Override
-    public void transitToDetail() {
-        DetailFragment fragment = new DetailBuilder().build(mBaseActivity.getActivityComponent());
+    public void transitToDetail(int pokemonId) {
+        DetailFragment fragment = new DetailBuilder.Builder().setPokemonId(pokemonId).build().build(mBaseActivity.getActivityComponent());
         transition(fragment);
     }
 }

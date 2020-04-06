@@ -32,7 +32,7 @@ public class DashboardPresenterImpl extends BasePresenterImpl implements Dashboa
     }
 
     @Override
-    public void transitToDetail() {
-        mTransitionController.transitToDetail();
+    public void transitToDetail(int pokemonId) {
+        mTransitionController.transitToDetail(pokemonId);
     }
 }

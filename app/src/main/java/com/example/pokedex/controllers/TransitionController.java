@@ -9,5 +9,5 @@ public interface TransitionController {
     void transition(Fragment fragment);
 
     void transitToDashboard();
-    void transitToDetail();
+    void transitToDetail(int pokemonId);
 }
