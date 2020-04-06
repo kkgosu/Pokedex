@@ -1,6 +1,8 @@
 package com.example.pokedex.fragments.dashboard;
 
 import com.example.pokedex.annotations.PerFragment;
+import com.example.pokedex.fragments.dashboard.interactors.LoadPokemonDataInteractor;
+import com.example.pokedex.fragments.dashboard.interactors.LoadPokemonDataInteractorImpl;
 
 import dagger.Module;
 import dagger.Provides;
@@ -29,5 +31,11 @@ public class DashboardModule {
     @PerFragment
     public DashboardPresenter providePresenter() {
         return mPresenter;
+    }
+
+    @Provides
+    @PerFragment
+    public LoadPokemonDataInteractor provideLoadPokemonDataInteractor(LoadPokemonDataInteractorImpl loadPokemonDataInteractor) {
+        return loadPokemonDataInteractor;
     }
 }

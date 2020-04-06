@@ -1,6 +1,8 @@
 package com.example.pokedex.fragments.detail;
 
 import com.example.pokedex.annotations.PerFragment;
+import com.example.pokedex.fragments.detail.interactor.LoadPokemonDataInteractor;
+import com.example.pokedex.fragments.detail.interactor.LoadPokemonDataInteractorImpl;
 
 import dagger.Module;
 import dagger.Provides;
@@ -28,5 +30,11 @@ public class DetailModule {
     @PerFragment
     public DetailView provideView() {
         return mView;
+    }
+
+    @Provides
+    @PerFragment
+    public LoadPokemonDataInteractor provideLoadPokemonDataInteractor(LoadPokemonDataInteractorImpl loadPokemonDataInteractor) {
+        return loadPokemonDataInteractor;
     }
 }

@@ -3,7 +3,6 @@ package com.example.pokedex.fragments.dashboard;
 import android.os.Bundle;
 
 import com.example.pokedex.R;
-import com.example.pokedex.activities.BaseActivity;
 import com.example.pokedex.fragments.base.BaseFragment;
 import com.example.pokedex.fragments.base.BasePresenter;
 
@@ -21,7 +20,7 @@ public class DashboardFragment extends BaseFragment implements DashboardView {
 
     @OnClick(R.id.dashboard_textview)
     void onDashboardTextViewCLicked() {
-        mPresenter.transistToDetail(((BaseActivity)requireActivity()).getActivityComponent());
+        mPresenter.transitToDetail(1);
     }
 
     public DashboardFragment(int contentLayoutId) {

@@ -1,8 +1,10 @@
-package com.example.pokedex.di;
+package com.example.pokedex.di.components;
 
 import android.content.Context;
 
 import com.example.pokedex.PokedexApplication;
+import com.example.pokedex.di.modules.ApplicationModule;
+import com.google.gson.Gson;
 
 import javax.inject.Named;
 import javax.inject.Singleton;
@@ -20,4 +22,8 @@ public interface ApplicationComponent {
 
     @Named("Application")
     Context applicationContext();
+
+    Gson gson();
+
+
 }

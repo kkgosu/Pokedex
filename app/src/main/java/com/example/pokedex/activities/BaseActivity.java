@@ -7,9 +7,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.pokedex.PokedexApplication;
 import com.example.pokedex.annotations.Layout;
 import com.example.pokedex.annotations.Title;
-import com.example.pokedex.di.ActivityComponent;
-import com.example.pokedex.di.ActivityModule;
-import com.example.pokedex.di.DaggerActivityComponent;
+import com.example.pokedex.di.components.ActivityComponent;
+import com.example.pokedex.di.components.DaggerActivityComponent;
+import com.example.pokedex.di.modules.ActivityModule;
+import com.example.pokedex.di.modules.ControllersModule;
+import com.example.pokedex.di.modules.DataModule;
+import com.example.pokedex.di.modules.TransformerModule;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -48,7 +51,11 @@ public abstract class BaseActivity extends AppCompatActivity {
     private void setupDependencyInjection() {
         mActivityComponent = DaggerActivityComponent.builder()
                 .activityModule(new ActivityModule(this))
-                .applicationComponent(((PokedexApplication) getApplication()).getApplicationComponent())
+                .controllersModule(new ControllersModule())
+                .transformerModule(new TransformerModule())
+                .dataModule(new DataModule())
+                .applicationComponent(
+                        ((PokedexApplication) getApplication()).getApplicationComponent())
                 .build();
     }
 

@@ -1,8 +1,9 @@
-package com.example.pokedex.di;
+package com.example.pokedex.di.modules;
 
 import android.content.Context;
 
 import com.example.pokedex.PokedexApplication;
+import com.google.gson.Gson;
 
 import javax.inject.Named;
 import javax.inject.Singleton;
@@ -34,5 +35,11 @@ public class ApplicationModule {
     @Named("Application")
     Context provideApplicationContext() {
         return mPokedexApplication;
+    }
+
+    @Provides
+    @Singleton
+    Gson provideGson() {
+        return new Gson();
     }
 }

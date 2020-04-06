@@ -3,7 +3,6 @@ package com.example.pokedex.fragments.detail;
 import android.os.Bundle;
 
 import com.example.pokedex.R;
-import com.example.pokedex.activities.BaseActivity;
 import com.example.pokedex.fragments.base.BaseFragment;
 import com.example.pokedex.fragments.base.BasePresenter;
 
@@ -21,7 +20,7 @@ public class DetailFragment extends BaseFragment implements DetailView {
 
     @OnClick(R.id.detail_textview)
     void onDetailTextViewClicked(){
-        mPresenter.transistToDetail(((BaseActivity)requireActivity()).getActivityComponent());
+        mPresenter.transistToDashboard();
     }
 
     public DetailFragment(int contentLayoutId) {

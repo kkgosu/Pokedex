@@ -1,7 +1,7 @@
 package com.example.pokedex.fragments.detail;
 
 import com.example.pokedex.annotations.PerFragment;
-import com.example.pokedex.di.ActivityComponent;
+import com.example.pokedex.di.components.ActivityComponent;
 
 import dagger.Component;
 

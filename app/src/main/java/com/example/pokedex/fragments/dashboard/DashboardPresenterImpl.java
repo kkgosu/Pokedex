@@ -1,9 +1,11 @@
 package com.example.pokedex.fragments.dashboard;
 
-import com.example.pokedex.di.ActivityComponent;
+import com.example.model.models.Pokemon;
+import com.example.pokedex.controllers.TransitionController;
 import com.example.pokedex.fragments.base.BasePresenterImpl;
-import com.example.pokedex.fragments.detail.DetailBuilder;
-import com.example.pokedex.fragments.detail.DetailFragment;
+import com.example.pokedex.fragments.dashboard.interactors.LoadPokemonDataInteractor;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -15,9 +17,22 @@ public class DashboardPresenterImpl extends BasePresenterImpl implements Dashboa
     @Inject
     DashboardView mView;
 
+    @Inject
+    TransitionController mTransitionController;
+
+    @Inject
+    LoadPokemonDataInteractor mLoadPokemonDataInteractor;
+
     @Override
-    public void transistToDetail(ActivityComponent component) {
-        DetailFragment detailFragment = new DetailBuilder().build(component);
-        component.transitionController().transition(detailFragment);
+    public void onResume() {
+        super.onResume();
+
+        List<Pokemon> pokemons = mLoadPokemonDataInteractor.execute();
+        System.out.println(pokemons);
+    }
+
+    @Override
+    public void transitToDetail(int pokemonId) {
+        mTransitionController.transitToDetail(pokemonId);
     }
 }
