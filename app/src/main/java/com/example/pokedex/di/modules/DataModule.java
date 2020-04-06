@@ -4,8 +4,7 @@ import com.example.model.datasources.PokemonLocalDatasource;
 import com.example.model.datasources.PokemonLocalDatasourceImpl;
 import com.example.model.datastores.PokemonDatastore;
 import com.example.model.datastores.PokemonDatastoreImpl;
-
-import javax.inject.Singleton;
+import com.example.pokedex.annotations.PerActivity;
 
 import dagger.Module;
 import dagger.Provides;
@@ -18,13 +17,13 @@ import dagger.Provides;
 public class DataModule {
 
     @Provides
-    @Singleton
+    @PerActivity
     public PokemonDatastore providePokemonDatastore(PokemonDatastoreImpl pokemonDatastore) {
         return pokemonDatastore;
     }
 
     @Provides
-    @Singleton
+    @PerActivity
     public PokemonLocalDatasource providePokemonLocalDatasource(PokemonLocalDatasourceImpl pokemonLocalDatasource) {
         return pokemonLocalDatasource;
     }

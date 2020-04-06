@@ -2,8 +2,6 @@ package com.example.pokedex.activities;
 
 import android.os.Bundle;
 
-import com.example.model.models.Pokemon;
-import com.example.pokedex.PokedexApplication;
 import com.example.pokedex.R;
 import com.example.pokedex.annotations.Layout;
 import com.example.pokedex.annotations.Title;
@@ -20,9 +18,6 @@ public class MainActivity extends BaseActivity {
 
         DashboardFragment dashboardFragment = new DashboardBuilder().build(mActivityComponent);
         mActivityComponent.transitionController().transition(dashboardFragment);
-
-        Pokemon pokemon = ((PokedexApplication) getApplication()).getApplicationComponent().pokemonDatastore().getPokemonById(25);
-        System.out.println(pokemon);
     }
 
     @Override

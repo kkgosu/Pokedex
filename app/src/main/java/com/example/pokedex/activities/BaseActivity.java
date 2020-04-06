@@ -10,6 +10,9 @@ import com.example.pokedex.annotations.Title;
 import com.example.pokedex.di.components.ActivityComponent;
 import com.example.pokedex.di.components.DaggerActivityComponent;
 import com.example.pokedex.di.modules.ActivityModule;
+import com.example.pokedex.di.modules.ControllersModule;
+import com.example.pokedex.di.modules.DataModule;
+import com.example.pokedex.di.modules.TransformerModule;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -48,6 +51,9 @@ public abstract class BaseActivity extends AppCompatActivity {
     private void setupDependencyInjection() {
         mActivityComponent = DaggerActivityComponent.builder()
                 .activityModule(new ActivityModule(this))
+                .controllersModule(new ControllersModule())
+                .transformerModule(new TransformerModule())
+                .dataModule(new DataModule())
                 .applicationComponent(
                         ((PokedexApplication) getApplication()).getApplicationComponent())
                 .build();

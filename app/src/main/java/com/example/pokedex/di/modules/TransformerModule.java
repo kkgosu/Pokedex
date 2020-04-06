@@ -2,6 +2,7 @@ package com.example.pokedex.di.modules;
 
 import com.example.model.transformers.PokemonTransformer;
 import com.example.model.transformers.PokemonTransformerImpl;
+import com.example.pokedex.annotations.PerActivity;
 
 import javax.inject.Singleton;
 
@@ -15,7 +16,7 @@ import dagger.Provides;
 @Module
 public class TransformerModule {
     @Provides
-    @Singleton
+    @PerActivity
     public PokemonTransformer providePokemonTransformer(PokemonTransformerImpl pokemonTransformer) {
         return pokemonTransformer;
     }

@@ -18,7 +18,7 @@ import timber.log.Timber;
 public class AssetsControllerImpl implements AssetsController {
 
     @Inject
-    @Named("Application")
+    @Named("Activity")
     Context mContext;
 
     @Inject

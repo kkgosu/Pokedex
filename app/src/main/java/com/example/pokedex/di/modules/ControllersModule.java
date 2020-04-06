@@ -4,8 +4,7 @@ import com.example.model.controllers.AssetsController;
 import com.example.model.controllers.AssetsControllerImpl;
 import com.example.model.controllers.GsonController;
 import com.example.model.controllers.GsonControllerImpl;
-
-import javax.inject.Singleton;
+import com.example.pokedex.annotations.PerActivity;
 
 import dagger.Module;
 import dagger.Provides;
@@ -18,13 +17,13 @@ import dagger.Provides;
 public class ControllersModule {
 
     @Provides
-    @Singleton
+    @PerActivity
     AssetsController provideAssetsController(AssetsControllerImpl assetsControllerImpl) {
         return assetsControllerImpl;
     }
 
     @Provides
-    @Singleton
+    @PerActivity
     GsonController provideGsonController(GsonControllerImpl gsonController) {
         return gsonController;
     }
