@@ -6,6 +6,8 @@ import com.example.pokedex.di.components.ApplicationComponent;
 import com.example.pokedex.di.components.DaggerApplicationComponent;
 import com.example.pokedex.di.modules.ApplicationModule;
 import com.example.pokedex.di.modules.ControllersModule;
+import com.example.pokedex.di.modules.DataModule;
+import com.example.pokedex.di.modules.TransformerModule;
 import com.example.pokedex.util.timber.DebugTree;
 import com.example.pokedex.util.timber.ReleaseTree;
 
@@ -30,6 +32,8 @@ public class PokedexApplication extends Application {
         mApplicationComponent = DaggerApplicationComponent.builder()
                 .applicationModule(new ApplicationModule(this))
                 .controllersModule(new ControllersModule())
+                .transformerModule(new TransformerModule())
+                .dataModule(new DataModule())
                 .build();
     }
 }

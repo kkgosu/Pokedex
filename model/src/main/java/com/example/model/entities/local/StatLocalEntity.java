@@ -1,5 +1,6 @@
 package com.example.model.entities.local;
 
+import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -12,9 +13,6 @@ public class StatLocalEntity {
 
     @Override
     public String toString() {
-        return "StatLocalEntity{" +
-                "baseStat='" + baseStat + '\'' +
-                ", stat=" + stat +
-                '}';
+        return new Gson().toJson(this);
     }
 }

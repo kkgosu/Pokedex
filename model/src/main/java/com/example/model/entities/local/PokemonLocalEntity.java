@@ -1,5 +1,6 @@
 package com.example.model.entities.local;
 
+import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
@@ -17,6 +18,7 @@ public class PokemonLocalEntity {
     public Integer order;
     @SerializedName("is_default")
     public Boolean isStarter;
+    public String description;
     @SerializedName("evolution")
     public Integer evolutionId;
     public List<TypeLocalEntity> types;
@@ -24,17 +26,6 @@ public class PokemonLocalEntity {
 
     @Override
     public String toString() {
-        return "PokemonLocalEntity{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", height=" + height +
-                ", weight=" + weight +
-                ", baseExperience=" + baseExperience +
-                ", order=" + order +
-                ", isStarter=" + isStarter +
-                ", evolutionId=" + evolutionId +
-                ", types=" + types +
-                ", stats=" + stats +
-                '}';
+        return new Gson().toJson(this);
     }
 }

@@ -1,5 +1,7 @@
 package com.example.model.entities.local;
 
+import com.google.gson.Gson;
+
 /**
  * Created by Konstantin Koval on 05.04.2020
  */
@@ -9,9 +11,6 @@ public class TypeLocalEntity {
 
     @Override
     public String toString() {
-        return "TypeLocalEntity{" +
-                "slot='" + slot + '\'' +
-                ", type=" + type +
-                '}';
+        return new Gson().toJson(this);
     }
 }
