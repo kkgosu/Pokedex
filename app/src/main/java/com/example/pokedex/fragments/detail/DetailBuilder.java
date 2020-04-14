@@ -12,6 +12,7 @@ public class DetailBuilder extends BaseBuilder<DetailFragment> {
 
     public DetailBuilder() {
     }
+
     public DetailBuilder(int pokemonId) {
         this.pokemonId = pokemonId;
     }
